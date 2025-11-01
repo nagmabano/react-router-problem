@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import EventForm from "../components/EventForm";
 
 function NewEventPage() {
@@ -27,4 +28,6 @@ export async function action({request, param}) {
   if (!response.ok) {
     throw JSON.stringify({message: "Could not save event."}, {status: 500});
   } 
+
+  return redirect("/events");
 }
